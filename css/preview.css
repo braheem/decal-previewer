@@ -1,0 +1,16 @@
+div{
+	position: relative;
+}
+#layer2
+{
+	position: absolute;
+}
+
+#fileDisplayArea
+{
+	width: 1000px;
+	height: 800px;
+	border: 1px solid #F00;
+	position: absolute;
+	overflow: auto;
+}
