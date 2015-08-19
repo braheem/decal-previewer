@@ -4,24 +4,33 @@
 	<script src="js/jquery-1.11.3.min.js"></script>
 	<script src="js/jquery-ui.min.js"></script>
 	<link href="css/jquery-ui.css" rel="stylesheet">
-
+	<link href="css/theme.css" rel="stylesheet">
 	<script src="js/preview.js"></script>
 
 </head>
 <body>
 
-	<div id="page-wrapper">
+	<div id="container" class="clearfix">
 
 		<h1>Decal Previewer</h1>
 		<div>
 		  Select an Image of your vehicle to preview: 
 		  <input type="file" id="fileInput">
 		</div>
-		<div id="fileDisplayArea" style='display:inline-block'>
-			<div id="layer2cont" style="z-index: 500">
-				<img id="layer2" style="z-index: 500" src="img/preview_sample.jpg"/>
+		<div id="fileDisplayArea">
+			<div id="layer2cont">
+				<img id="layer2" src="img/preview_sample.jpg"/>
 			</div>
 		</div>
-	</div>
+		<div id="toolbar">
+			<!--<button id="rotateV" type="button">Rotate Vehicle 90&deg Clockwise</button>
+			<button id="rotateD" type="button">Rotate Decal 90&deg Clockwise</button>-->
+			
+			<button id="flipV" type="button">Flip Vehicle Horizontally</button>
+			<button id="flipD" type="button">Flip Decal Horizontally</button>
 
+		</div>
+		
+	</div>                                       
+	
 </body>
