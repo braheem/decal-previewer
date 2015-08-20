@@ -1,4 +1,4 @@
-window.onload = function(){
+$(window).load(function() {
     var fileInput = document.getElementById('fileInput');
     var fileDisplayArea = document.getElementById('fileDisplayArea');
 
@@ -10,26 +10,13 @@ window.onload = function(){
 			var reader = new FileReader();
 
 			reader.onload = function(e) {
-
+				
 				// Create a new image.
-				var div = document.createElement('div');
-				div.id = "layer1cont";
-				div.style.display = "inline-block";
+				createImage("layer1", "layer1cont", "10", reader.result);
 				
-				var img = new Image();
-				//set image id
-				img.id = "layer1";
-				// Set the img src property using the data URL.
-				img.src = reader.result;
-				img.style.zIndex = "10";
-				img.position = "absolute";
-				img.style.maxHeight = "100%";
-				img.style.maxWidth = "100%";
-				div.appendChild(img);
-				fileDisplayArea.appendChild(div);
 				
-				$('#layer1').resizable();
-				$('#layer1cont').draggable();
+				createImage("layer2", "layer2cont", "20",  "/preview/img/eagledecal.png");
+				
 				
 			}
 			reader.readAsDataURL(file); 
@@ -40,8 +27,6 @@ window.onload = function(){
     });
 	
 	
-	$('#layer2').resizable();
-	$('#layer2cont').draggable();
 	
 	//flip decal horizontally
 	$('#flipD').click(function() {
@@ -52,6 +37,39 @@ window.onload = function(){
 	$('#flipV').click(function() {
 		$('#layer1').toggleClass('flipHorizontal');
 	});
+	
+	//hide/show resize icon
+	$('#toggleIcon').click(function() {
+		$('.ui-icon').toggleClass('hideIcon');
+		$('.ui-widget-content').toggleClass('hideIcon');
+	});
+	
+	function createImage(imgid, containerid, zIndex, imgsource){
+	
+		var div = document.createElement('div');
+		div.id = containerid;
+		div.style.display = "inline-block";
+		div.style.zIndex = zIndex;
+		div.position = "absolute";
+		div.style.maxHeight = "100%";
+		div.style.maxWidth = "100%";
+		div.style.width = "100%";
+		div.style.overflow = "hidden";
+		
+		var img = new Image();
+		img.id = imgid;
+		img.onload = function() {	
+			img.position = "absolute";
+			img.style.maxHeight = "100%";
+			img.style.maxWidth = "100%";
+			div.appendChild(img);
+			fileDisplayArea.appendChild(div);
+			$("#" + imgid).resizable();
+			$("#" + containerid).draggable();
+		}
+		img.src = imgsource;
+		
+	}
 	
 	/* //rotate decal 90 degrees
 	document.getElementById("rotateV").onclick = function(){
@@ -76,6 +94,7 @@ window.onload = function(){
 		}
 		document.getElementById('layer2cont').style.transform = new_value;
 	} */
-}
+});
+
 
 

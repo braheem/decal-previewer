@@ -1,12 +1,11 @@
 <head>
-	<link href="css/preview.css" rel="stylesheet">
-
 	<script src="js/jquery-1.11.3.min.js"></script>
 	<script src="js/jquery-ui.min.js"></script>
 	<link href="css/jquery-ui.css" rel="stylesheet">
 	<link href="css/theme.css" rel="stylesheet">
 	<script src="js/preview.js"></script>
-
+	<link href="/assets/css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/preview.css" rel="stylesheet">
 </head>
 <body>
 
@@ -18,19 +17,16 @@
 		  <input type="file" id="fileInput">
 		</div>
 		<div id="fileDisplayArea">
-			<div id="layer2cont">
-				<img id="layer2" src="img/preview_sample.jpg"/>
-			</div>
 		</div>
-		<div id="toolbar">
+		<div class="btn-group-vertical" id="toolbar">
 			<!--<button id="rotateV" type="button">Rotate Vehicle 90&deg Clockwise</button>
 			<button id="rotateD" type="button">Rotate Decal 90&deg Clockwise</button>-->
-			
 			<button id="flipV" type="button">Flip Vehicle Horizontally</button>
+
 			<button id="flipD" type="button">Flip Decal Horizontally</button>
 
+			<button id="toggleIcon" type="button">Toggle Resize Icon</button>
 		</div>
-		
 	</div>                                       
 	
 </body>
