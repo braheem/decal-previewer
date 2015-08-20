@@ -15,7 +15,7 @@ $(window).load(function() {
 				createImage("layer1", "layer1cont", "10", reader.result);
 				
 				
-				createImage("layer2", "layer2cont", "20",  "/preview/img/eagledecal.png");
+				createImage("layer2", "layer2cont", "20",  "/decal-previewer/img/eagledecal.png");
 				
 				
 			}
