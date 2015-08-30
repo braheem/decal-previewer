@@ -64,7 +64,9 @@ $(window).load(function() {
 			img.style.maxWidth = "100%";
 			div.appendChild(img);
 			fileDisplayArea.appendChild(div);
-			$("#" + imgid).resizable();
+			$("#" + imgid).resizable({
+				aspectRatio: true
+			});
 			$("#" + containerid).draggable();
 		}
 		img.src = imgsource;
