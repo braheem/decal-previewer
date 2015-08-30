@@ -65,9 +65,12 @@ $(window).load(function() {
 			div.appendChild(img);
 			fileDisplayArea.appendChild(div);
 			$("#" + imgid).resizable({
-				aspectRatio: true
+				aspectRatio: true,
+				containment: "#fileDisplayArea"
 			});
-			$("#" + containerid).draggable();
+			$("#" + containerid).draggable({
+				scroll: false	
+			});
 		}
 		img.src = imgsource;
 		
