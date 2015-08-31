@@ -44,61 +44,49 @@ $(window).load(function() {
 		$('.ui-widget-content').toggleClass('hideIcon');
 	});
 	
+	//rotate decal in intervals Clockwise and Counterclockwise
+	var angle = 0;
+	$('#rotateCW').click(function() {
+		angle += 5;
+		$("#layer2cont").rotate(angle);
+	});
+	$('#rotateCCW').click(function() {
+		angle -= 5;
+		$("#layer2cont").rotate(angle);
+	});
 	function createImage(imgid, containerid, zIndex, imgsource){
 	
 		var div = document.createElement('div');
 		div.id = containerid;
 		div.style.display = "inline-block";
 		div.style.zIndex = zIndex;
-		div.position = "absolute";
+		div.style.position = "relative";
 		div.style.maxHeight = "100%";
 		div.style.maxWidth = "100%";
-		div.style.width = "100%";
 		div.style.overflow = "hidden";
+		div.style.width = "100%";
 		
 		var img = new Image();
 		img.id = imgid;
 		img.onload = function() {	
-			img.position = "absolute";
+			img.style.position = "relative";
 			img.style.maxHeight = "100%";
 			img.style.maxWidth = "100%";
 			div.appendChild(img);
 			fileDisplayArea.appendChild(div);
-			$("#" + imgid).resizable({
-				aspectRatio: true,
+			$("#" + containerid).draggable({
 				containment: "#fileDisplayArea"
 			});
-			$("#" + containerid).draggable({
-				scroll: false	
+			$("#" + imgid).resizable({
+				aspectRatio: true,
+				containment: "#fileDisplayArea",
+				alsoResize: "#" + containerid
 			});
 		}
 		img.src = imgsource;
 		
 	}
 	
-	/* //rotate decal 90 degrees
-	document.getElementById("rotateV").onclick = function(){
-		var curr_value = document.getElementById('layer1cont').style.transform;
-		var new_value = "rotate(90deg)";
-		if(curr_value !== ""){
-			var new_rotate = parseInt(curr_value.replace("rotate(","").replace(")","")) + 90;
-			new_value = "rotate(" + new_rotate + "deg)";
-
-		}
-		document.getElementById('layer1cont').style.transform = new_value;
-	}
-	
-	//rotate decal 90 degrees
-	document.getElementById("rotateD").onclick = function(){
-		var curr_value = document.getElementById('layer2cont').style.transform;
-		var new_value = "rotate(90deg)";
-		if(curr_value !== ""){
-			var new_rotate = parseInt(curr_value.replace("rotate(","").replace(")","")) + 90;
-			new_value = "rotate(" + new_rotate + "deg)";
-
-		}
-		document.getElementById('layer2cont').style.transform = new_value;
-	} */
 });
 
 
